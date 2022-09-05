@@ -1,0 +1,13 @@
+package io.javabrains.springbootquickstart;
+
+@SpringBootApplication
+public class learnApiApp {
+
+	public static void main(String[] args) {
+		SpringApplication.run(learnApiApp.class, args);
+		
+		
+
+	}
+
+}

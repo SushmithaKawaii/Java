@@ -1,0 +1,28 @@
+/**
+ * 
+ */
+package com.example.controller;
+
+import java.io.IOException;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * @author wargo
+ *
+ */
+@Controller
+@RequestMapping("/hello")
+public class testController {
+
+	 @GetMapping(value={"/", "/index"})
+	    public String getHomePage(){
+
+	        return "index";
+	    }
+	
+}

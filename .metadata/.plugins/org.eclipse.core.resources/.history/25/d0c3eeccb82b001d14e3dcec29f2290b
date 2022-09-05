@@ -1,0 +1,64 @@
+package io.javabrains.springbootstarter.learn;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class TopicService {
+	
+	@Autowired
+	private learnRepository topicRepository;
+		
+	//private  List<Topic> topics = new ArrayList<>(Arrays.asList(
+		//			new Topic("Spring", "Spring Framework", "Spring Framework Description"),
+			//		new Topic("java", "Core Java", "Core Java Description"),
+				//	new Topic("javascript", "Javascript", "Javascript Description")
+					//));
+	
+	public List<learn> getAllTopics() {
+		//return this.topics;
+		List<learn> topics = new ArrayList<>();
+		topicRepository.findAll()
+		.forEach(topics::add);
+		return topics;
+	}
+	
+	public learn getTopic(String id) {
+		//return topics.stream().filter(t -> t.getId().toLowerCase().equals(id.toLowerCase())).findFirst().get();
+	    return topicRepository.findById(id).get();
+	}
+
+	public learn addTopic(learn topic) {
+		topicRepository.save(topic);
+		return topic;
+		
+	}
+
+	public void updateTopic(String id, learn topic) {
+		//for(int i = 0; i < topics.size(); i++) {
+			//Topic t = topics.get(i);
+			//if (t.getId().equals(id)) {
+				//this.topics.set(i,  topic);
+				//return;
+		topicRepository.save(topic);
+			}
+		
+		
+		
+	
+
+	public void deleteTopic(String id) {
+		//this.topics.removeIf(t -> t.getId().equals(id));
+		topicRepository.deleteById(id);
+		
+	}
+	
+	
+
+}
